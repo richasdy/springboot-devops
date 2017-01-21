@@ -10,5 +10,10 @@ public class HelloController {
     public String index() {
         return "hello devops with spring boot, travis and heroku";
     }
+	
+	@RequestMapping("/hello")
+    public String forEdit() {
+        return "this request mapping is for experiment";
+    }
 
 }
