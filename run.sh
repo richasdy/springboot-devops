@@ -9,5 +9,9 @@
 # mvn package docker:build -DpushImage
 mvn package docker:build
 
+# preparation, remove if docker container exist
+docker stop springboot-devops
+docker rm springboot-devops
+
 # run docker
 docker run -d -p 8080:8080 --name springboot-devops -t richasdy/springboot-devops 
