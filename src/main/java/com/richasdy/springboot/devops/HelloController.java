@@ -13,7 +13,7 @@ public class HelloController {
 	
 	@RequestMapping("/hello")
     public String forEdit() {
-        return "this request mapping is for experiments";
+        return "this request mapping is for experiment";
     }
 
 }
