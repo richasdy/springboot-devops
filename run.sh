@@ -16,3 +16,6 @@ docker rm springboot-devops
 
 # run docker
 docker run -d -p 8080:8080 --name springboot-devops -t richasdy/springboot-devops 
+
+# run docker with option
+#docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t springio/gs-spring-boot-docker
