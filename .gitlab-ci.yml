@@ -18,16 +18,12 @@ test:
  image: maven:3.3.9-jdk-8
  script:
  - mvn test
- tags:
- - shared
 
 build:
  stage: build
  image: maven:3.3.9-jdk-8
  script:
  - mvn clean package
- tags:
- - shared
 
 deploy_dev:
  stage: deploy
@@ -42,8 +38,6 @@ deploy_dev:
   url: https://dev-springboot-devops-gitlab.herokuapp.com
  only:
  - master
- tags:
- - shared
 
 deploy_staging:
  stage: deploy
@@ -58,8 +52,6 @@ deploy_staging:
   url: https://stage-pringboot-devops-gitlab.herokuapp.com
  only:
  - master
- tags:
- - shared
  
 deploy_prod:
  stage: deploy
@@ -75,5 +67,3 @@ deploy_prod:
  when: manual
  only:
  - master
- tags:
- - shared
