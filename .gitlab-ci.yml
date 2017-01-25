@@ -25,19 +25,19 @@ build:
  script:
  - mvn clean package
 
-deploy_dev:
- stage: deploy
- image: ruby:2.3
- script:
- - apt-get update -qy
- - apt-get install -y ruby-dev
- - gem install dpl
- - dpl --provider=heroku --app=dev-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
- environment:
-  name: development
-  url: https://dev-springboot-devops-gitlab.herokuapp.com
- only:
- - master
+# deploy_dev:
+#  stage: deploy
+#  image: ruby:2.3
+#  script:
+#  - apt-get update -qy
+#  - apt-get install -y ruby-dev
+#  - gem install dpl
+#  - dpl --provider=heroku --app=dev-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
+#  environment:
+#   name: development
+#   url: https://dev-springboot-devops-gitlab.herokuapp.com
+#  only:
+#  - master
 
 deploy_prod:
  stage: deploy
