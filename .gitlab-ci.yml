@@ -20,7 +20,7 @@ test:
  - mvn test
  tags:
  - shared
- 
+
 build:
  stage: build
  image: maven:3.3.9-jdk-8
@@ -38,8 +38,8 @@ deploy:
  - gem install dpl
  - dpl --provider=heroku --app=springboot-devops-gitlab --api-key=$HEROKU_API_KEY
  environment:
- # name: dev
- # url: https://springboot-devops-gitlab.herokuapp.com
+  name: dev
+  url: https://springboot-devops-gitlab.herokuapp.com
  only:
  - master
  tags:
