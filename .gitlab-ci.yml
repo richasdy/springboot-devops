@@ -52,8 +52,8 @@ deploy_staging:
   url: https://stage-springboot-devops-gitlab.herokuapp.com
  only:
  - master
-
- deploy_prod:
+ 
+deploy_prod:
  stage: deploy
  image: ruby:2.3
  script:
@@ -67,5 +67,3 @@ deploy_staging:
  when: manual
  only:
  - master
- 
-
