@@ -39,20 +39,6 @@ deploy_dev:
  only:
  - master
 
-deploy_staging:
- stage: deploy
- image: ruby:2.3
- script:
- - apt-get update -qy
- - apt-get install -y ruby-dev
- - gem install dpl
- - dpl --provider=heroku --app=stage-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
- environment:
-  name: staging
-  url: https://stage-springboot-devops-gitlab.herokuapp.com
- only:
- - master
- 
 deploy_prod:
  stage: deploy
  image: ruby:2.3
@@ -67,3 +53,19 @@ deploy_prod:
  # when: manual
  only:
  - master
+ 
+deploy_staging:
+ stage: deploy
+ image: ruby:2.3
+ script:
+ - apt-get update -qy
+ - apt-get install -y ruby-dev
+ - gem install dpl
+ - dpl --provider=heroku --app=stage-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
+ environment:
+  name: staging
+  url: https://stage-springboot-devops-gitlab.herokuapp.com
+ only:
+ - master
+ 
+
