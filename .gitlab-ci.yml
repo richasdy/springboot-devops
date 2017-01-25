@@ -28,8 +28,40 @@ build:
  - mvn clean package
  tags:
  - shared
+
+deploy_dev:
+ stage: deploy
+ image: ruby:2.3
+ script:
+ - apt-get update -qy
+ - apt-get install -y ruby-dev
+ - gem install dpl
+ - dpl --provider=heroku --app=dev-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
+ environment:
+  name: development
+  url: https://dev-springboot-devops-gitlab.herokuapp.com
+ only:
+ - master
+ tags:
+ - shared
+
+deploy_staging:
+ stage: deploy
+ image: ruby:2.3
+ script:
+ - apt-get update -qy
+ - apt-get install -y ruby-dev
+ - gem install dpl
+ - dpl --provider=heroku --app=stage-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
+ environment:
+  name: staging
+  url: https://stage-pringboot-devops-gitlab.herokuapp.com
+ only:
+ - master
+ tags:
+ - shared
  
-deploy:
+deploy_prod:
  stage: deploy
  image: ruby:2.3
  script:
@@ -38,8 +70,9 @@ deploy:
  - gem install dpl
  - dpl --provider=heroku --app=springboot-devops-gitlab --api-key=$HEROKU_API_KEY
  environment:
-  name: dev
+  name: production
   url: https://springboot-devops-gitlab.herokuapp.com
+ when: manual
  only:
  - master
  tags:
