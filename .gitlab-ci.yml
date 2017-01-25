@@ -29,8 +29,8 @@ deploy_dev:
  - gem install dpl
  - dpl --provider=heroku --app=springboot-devops-gitlab --api-key=$HEROKU_API_KEY
  environment:
- name: dev
- url: https://springboot-devops-gitlab.herokuapp.com
+ # name: dev
+ # url: https://springboot-devops-gitlab.herokuapp.com
  only:
  - master
  tags:
