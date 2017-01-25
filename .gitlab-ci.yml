@@ -18,7 +18,7 @@ build:
  script:
  - mvn clean package
  tags:
- - hello
+ - shared
  
 deploy_dev:
  stage: deploy
@@ -34,4 +34,4 @@ deploy_dev:
  only:
  - master
  tags:
- - hello
+ - shared
