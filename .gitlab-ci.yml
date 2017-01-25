@@ -49,7 +49,7 @@ deploy_staging:
  - dpl --provider=heroku --app=stage-springboot-devops-gitlab --api-key=$HEROKU_API_KEY
  environment:
   name: staging
-  url: https://stage-pringboot-devops-gitlab.herokuapp.com
+  url: https://stage-springboot-devops-gitlab.herokuapp.com
  only:
  - master
  
