@@ -10,6 +10,7 @@ cache:
  
 stages:
  - build
+ - test
  - deploy
 
 build:
@@ -19,8 +20,16 @@ build:
  - mvn clean package
  tags:
  - shared
+
+test:
+ stage: test
+ image: maven:3.3.9-jdk-8
+ script:
+ - mvn test
+ tags:
+ - shared
  
-deploy_dev:
+deploy:
  stage: deploy
  image: ruby:2.3
  script:
