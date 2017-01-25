@@ -27,26 +27,10 @@ deploy_dev:
  - apt-get update -qy
  - apt-get install -y ruby-dev
  - gem install dpl
- - dpl --provider=heroku --app=vel-ci-api-dev --api-key=$HEROKU_API_KEY
+ - dpl --provider=heroku --app=springboot-devops-gitlab --api-key=$HEROKU_API_KEY
  environment:
  name: dev
- url: https://vel-ci-api-dev.herokuapp.com
- only:
- - master
- tags:
- - docker
- 
-deploy_staging:
- stage: deploy
- image: ruby:2.3
- script:
- - apt-get update -qy
- - apt-get install -y ruby-dev
- - gem install dpl
- - dpl --provider=heroku --app=vel-ci-api-stg --api-key=$HEROKU_API_KEY
- environment:
- name: staging
- url: https://vel-ci-api-stg.herokuapp.com
+ url: https://springboot-devops-gitlab.herokuapp.com
  only:
  - master
  tags:
