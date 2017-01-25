@@ -64,6 +64,6 @@ deploy_prod:
  environment:
   name: production
   url: https://springboot-devops-gitlab.herokuapp.com
- when: manual
+ # when: manual
  only:
  - master
